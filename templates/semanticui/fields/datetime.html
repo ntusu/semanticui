@@ -1,0 +1,21 @@
+<div class="{% if is_inline %}inline {% endif %}field {% if field.field.required %}required{% endif %} {% if field.errors %} error{% endif %}{% if field.error %} error{% endif %}">
+  {% if field.auto_id %}
+    <label class="{{ classes.label }}" for="{{ field.auto_id }}">{{ field.label }}</label>
+  {% endif %}
+
+  {% include 'semanticui/field_error.html' %}
+
+  <div class="ui calendar">
+    <div class="ui input left icon">
+      <i class="calendar icon"></i>
+      <input type="text" name="{{ field.name }}" placeholder="Date/Time" value="{{ field.value }}">
+    </div>
+  </div>
+  {% include 'semanticui/field_help.html' %}
+
+</div>
+<script>
+  $(document).ready(function () {
+    $('.ui.calendar[name="{{ field.name }}"]').calendar();
+  });
+</script>

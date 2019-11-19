@@ -1,0 +1,10 @@
+<div class="{% if is_inline %}inline {% endif %}field">
+  {% include 'semanticui/field_error.html' %}
+  <div class="ui checkbox {{ classes.single_value }}">
+    {% if field.auto_id %}
+      {{ field }}
+      <label>{{ field.label }}</label>
+    {% endif %}
+  </div>
+  {% include 'semanticui/field_help.html' %}
+</div>

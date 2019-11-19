@@ -1,0 +1,12 @@
+<div class="{% if is_inline %}inline {% endif %}field {% if field.field.required %}required{% endif %} {% if field.errors %} error{% endif %}{% if field.error %} error{% endif %}">
+  {% include 'semanticui/field_error.html' %}
+
+  <label for="select">{{ field.label }}</label>
+  <select name='{{ field.name }}' class="ui dropdown" id="select">
+    {% for choice in field %}
+      {{ choice }}
+    {% endfor %}
+  </select>
+
+  {% include 'semanticui/field_help.html' %}
+</div>

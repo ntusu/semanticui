@@ -1,0 +1,29 @@
+{% if form.non_field_errors %}
+  <div class="ui negative message">
+    <i class="close icon"></i>
+    <div class="header">Error</div>
+    {% for non_field_error in form.non_field_errors %}
+      <p>{{ non_field_error }}</p>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% for field in form.hidden_fields %}
+  {{ field }}
+{% endfor %}
+
+{% for field in form.visible_fields %}
+  {% include 'semanticui/field.html' %}
+{% endfor %}
+
+<script>
+  $('.ui.dropdown').dropdown();
+  $('.message .close')
+  .on('click', function () {
+    $(this)
+    .closest('.message')
+    .transition('fade')
+    ;
+  })
+  ;
+</script>

@@ -1,0 +1,9 @@
+{% if messages %}
+    <div class="ui success message">
+        <i class="close icon"></i>
+        <div class="header">Success!</div>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

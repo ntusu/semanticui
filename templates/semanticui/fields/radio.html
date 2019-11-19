@@ -1,0 +1,15 @@
+<div class="{% if is_inline %}inline {% endif %}grouped fields {% if field.field.required %}required{% endif %} {% if field.errors %} error{% endif %}{% if field.error %} error{% endif %}">
+  {% if field.auto_id %}
+    <label>{{ field.label }}</label>
+  {% endif %}
+  {% include 'semanticui/field_error.html' %}
+  {% for choice in field %}
+    <div class="field">
+      <div class="ui radio checkbox">
+        {{ choice.tag }}
+        <label>{{ choice.choice_label }}</label>
+      </div>
+    </div>
+  {% endfor %}
+  {% include 'semanticui/field_help.html' %}
+</div>
